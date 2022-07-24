@@ -16,6 +16,15 @@ Article.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        article_description: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+        },
         article_content: {
             type: DataTypes.TEXT,
             allowNull: true
