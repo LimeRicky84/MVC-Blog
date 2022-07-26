@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const sequelize = require('../config/connection.js');
 
 
 class Article extends Model {}
@@ -43,7 +43,7 @@ Article.init(
         freezeTableName: true,
         underscored: true,
         modelName: 'article',
-      }
+    }
 )
 
 module.exports = Article;

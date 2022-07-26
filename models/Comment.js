@@ -9,23 +9,23 @@ Comment.init(
             type: DataTypes.INTEGER,
             primaryKey: true,
             allowNull: false,
-            autoIncrement: true
+            autoIncrement: true,
         },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
               model: 'user',
-              key: 'id'
-            }
+              key: 'id',
+            },
         },
         article_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
               model: 'article',
-              key: 'id'
-            }
+              key: 'id',
+            },
         },
         date_created: {
             type: DataTypes.DATE,
@@ -40,6 +40,13 @@ Comment.init(
             },
         },
     },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'comment',
+    }
 );
 
 module.exports = Comment;

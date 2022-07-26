@@ -1,15 +1,15 @@
-{{#each article as |article| }}
+{{!-- {{#each article as |article| }} --}}
 <div class="row mb-4">
     <div class="col-md-5" >
         <h2>
             <a href="/article/{{article.id}}">{{article.title}}</a>
         </h2>
-        <h4>Written by {{article.user.name}}</h4>
+        <p>Written by {{article.user.name}}</p>
         <p>Date written</p>
     </div>
     <div class="col-md-7">
-    <p>
-      {{article.description}}
-    </p>
-  </div>
+      <p>
+        {{article.description}}
+      </p>
+    </div>
 </div>

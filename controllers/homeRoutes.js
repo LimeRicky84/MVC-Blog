@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         const articles = articleData.map((article) => article.get({plain: true}))
 
         res.render('homepage', {
-
+            articles
         })
     } catch (err) {
         res.status(500).json(err);
@@ -21,3 +21,4 @@ router.get('/', async (req, res) => {
 // router.get('/article/:id', async (req, res) => {
 //     // Get a single article
 // });
+module.exports = router
