@@ -2,7 +2,7 @@
     <a href="/dashboard" class="is-pulled-right"> &larr; Return to Dashboard</a>
     <h2 class="title">Create a New Article</h2>
 
-    <form class="new-post">
+    <form class="edit-post">
         <div>
             <label for="article-title">Title:</label>
             <input class= "input" type="text" id="article-title" name="article-title" placeholder="Insert Article Title">
@@ -15,7 +15,14 @@
             <label for="article-content">Description:</label>
              <input class= "textarea is-large" id="article-content" name="article-content" placeholder="Insert Article Main Body here">
         </div>
+        <div>
+            Created on {{format_date post.created_at}}
+            |
+            <a href="/article/{{article.id}}">{{article.comments.length}} {{format_plural "comment" article.comments.length}}</a>
+        </div>
         <button type="submit" class="btn btn primary">Update</button>
         <button type="button" class="btn btn danger delete-post">Delete</button>
     </form>
 </article>
+
+{{> comments article.comments}}
