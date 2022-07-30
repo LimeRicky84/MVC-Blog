@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models')
 
+// routes for /api/user
+
 router.post('/signup', async (req, res) => {
     try {
         const userData = await User.create(req.body);
@@ -51,7 +53,7 @@ router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
       req.session.destroy(() => {
         res.status(204).end();
-      });
+    });
     } else {
       res.status(404).end();
     }

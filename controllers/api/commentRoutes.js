@@ -3,6 +3,7 @@ const { text } = require('express');
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// routes for /api/comment
 
 router.get('/', async (req, res) => {
     try {
