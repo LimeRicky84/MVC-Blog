@@ -5,16 +5,18 @@
     <form class="new-post">
         <div>
             <label for="article-title">Title:</label>
-            <input class= "input" type="text" id="article-title" name="article-title" placeholder="Insert Article Title">
+            <input class= "form-control mt-2" type="text" id="article-title" name="article-title" placeholder="Insert Article Title">
         </div>
         <div>
             <label for="article-description">Description:</label>
-            <input class= "input" type="text" id="article-description" name="article-description" placeholder="Insert Article Description">
+            <textarea class= "form-control mt-2" type="text" id="article-description" name="article-description" placeholder="Insert Article Description"></textarea>
         </div>
         <div>
-            <label for="article-content">Description:</label>
-             <input class= "textarea is-large" id="article-content" name="article-content" placeholder="Insert Article Main Body here">
+            <label for="article-content">Article Content:</label>
+             <textarea class= "form-control mt-2" id="article-content" rows="8" name="article-content" placeholder="Insert Article Main Body here"></textarea>
         </div>
         <button type="submit" class="btn btn primary">Submit</button>
     </form>
 </section>
+
+<script src="/js/create.js"></script>
