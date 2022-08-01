@@ -6,25 +6,12 @@ router.get('/', async (req, res) => {
 // Get all articles
     try {
         const articleData = await Article.findAll({
-            attributes: [
-                'id',
-                'title',
-                'article_description',
-                'date_created',
-            ],
             include: [
                 {
                     model: Comment,
-                    attributes: ['id', 'comment_text', 'article_id', 'user_id', 'date_created'],
-                    include: {
-                        model: User,
-                        attributes: ['name'],
-                    },
+                    include: { model: User },
                 },
-                {
-                    model: User,
-                    attributes: ['name'],
-                },
+                { model: User },
             ],
         })
         const articles = articleData.map((article) => article.get({plain: true}))
@@ -41,32 +28,19 @@ router.get('/', async (req, res) => {
 router.get('/article/:id', async (req, res) => {
     try {
       const articleData = await Article.findByPk(req.params.id, {
-        attributes: [
-            'id',
-            'title',
-            'article_description',
-            'date_created',
-        ],
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'article_id', 'user_id', 'date_created'],
-                include: {
-                    model: User,
-                    attributes: ['name'],
-                },
+                include: { model: User },
             },
 
-            {
-                model: User,
-                attributes: ['name'],
-            },
+            { model: User },
         ],
     });
   
       const article = articleData.get({ plain: true });
   
-      res.render('article', {
+      res.render('/article', {
         ...article,
         logged_in: req.session.logged_in
       });

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const sequelize = require("../config/connection");
+// const sequelize = require("../config/connection");
 const { Article, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
@@ -69,7 +69,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
   }
 });
 
-router.get("/create/", withAuth, async (req, res) => {
+router.get("/create", withAuth, async (req, res) => {
   try {
     const createArticle = await Article.findAll({
       where: {

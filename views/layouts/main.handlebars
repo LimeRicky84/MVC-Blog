@@ -13,13 +13,13 @@
         <header>
             <h1 class="px-2 mb-0 py-4 has-text-weight-bold"><a href="/">Tek Status</a></h1>
             <nav class="navbar navbar-expand mt-2">
-            {{!-- {{#if logged_in}} --}}
+            {{#if logged_in}}
             <a href="/dashboard" class="navbar-item is-hoverable pt-1 pl-1"> Dashboard </a>
             <a href="/dashboard/create/" class="navbar-item is-hoverable pt-1 pl-1"> Create </a>
             <a href="/api/user/logout" id="logout" class="navbar-item is-hoverable pt-1"> Logout </a>
-            {{!-- {{#else}} --}}
+            {{else}}
             <a href="/login" class="navbar-item is-hoverable pt-1 mr-4"> Login </a>
-            {{!-- {{/if}} --}}
+            {{/if}}
             </nav>
         </header>
         <main class="container container-fluid mt-5">
