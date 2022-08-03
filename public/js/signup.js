@@ -7,10 +7,6 @@ const signupFormHandler = async (event) => {
     const email = document.querySelector('#signup-email').value.trim()
     const password = document.querySelector('#signup-password').value.trim()
 
-        // console.log(userName)
-        // console.log(firstName)
-        // console.log(lastName)
-
     if (user_name && email && password) {
         const response = await fetch(`/api/user/signup`, {
             method: 'POST',
@@ -18,9 +14,6 @@ const signupFormHandler = async (event) => {
             headers: { 'content-Type': 'application/json'}
         })
         console.log(response)
-        // console.log(userName)
-        // console.log(firstName)
-        // console.log(lastName)
         if (response.ok) {
             document.location.replace('/dashboard')
         } else {

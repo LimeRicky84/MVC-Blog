@@ -69,19 +69,20 @@ router.get("/edit/:id", withAuth, async (req, res) => {
   }
 });
 
-router.get("/create", withAuth, async (req, res) => {
+router.get("/create/", withAuth, async (req, res) => {
   try {
+    console.log('1')
     const createArticle = await Article.findAll({
       where: {
         user_id: req.session.user_id,
       },
-      attributes: [
-        "id",
-        "title",
-        "description",
-        "date_created",
-        "article_content",
-      ],
+      // attributes: [
+      //   "id",
+      //   "title",
+      //   "article_description",
+      //   "date_created",
+      //   "article_content",
+      // ],
       include: [
         {
           model: Comment,
@@ -90,6 +91,7 @@ router.get("/create", withAuth, async (req, res) => {
         { model: User },
       ],
     });
+    console.log('2')
     const articles = createArticle.map((article) =>
       article.get({ plain: true })
     );

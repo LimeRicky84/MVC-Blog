@@ -4,7 +4,7 @@
 {{#if articles.length}}
     </div>
 
-    {{#each article as |article|}}
+    {{#each articles as |article|}}
         {{> article-info article}}
         
             <a href="/dashboard/edit/{{article.id}}"><button class="button mb-5 ml-5 secondary">Edit Article</button></a>

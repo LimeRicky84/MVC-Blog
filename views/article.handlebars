@@ -1,7 +1,7 @@
 <div class="text-center">
-  <h2>{{name}}</h2><br>
+  <h2>{{title}}</h2><br>
   <h4>{{article_description}}</h4><br>
-  <p>By: {{user.name}}</p><br>
+  <p>By: {{user.user_name}}</p><br>
   <p>{{format_date date_created}}</p><br>
   <br>
   <br>
@@ -9,4 +9,5 @@
 <div>
   <p>{{article_content}}</p><br>
   <br>
+  <p>{{> comment post.comment}}</p>
 </div>
