@@ -1,28 +1,31 @@
 <article>
-    <a href="/dashboard" class="is-pulled-right"> &larr; Return to Dashboard</a>
-    <h2 class="title">Create a New Article</h2>
+    <a href="/dashboard" class="font-weight-bold"> &larr; Return to Dashboard</a>
+    <h2 class="title">Edit This Article</h2>
 
     <form class="edit-post">
         <div>
             <label for="article-title">Title:</label>
-            <input class= "input" type="text" id="article-title" name="article-title" placeholder="Insert Article Title">
+            <input class= "input" type="text" id="article-title" name="article-title" value="{{article.title}}">
         </div>
         <div>
             <label for="article-description">Description:</label>
-            <input class= "input" type="text" id="article-description" name="article-description" placeholder="Insert Article Description">
+            <textarea class= "form-control mt-2" type="text" id="article-description" name="article-description" value="{{article.article_description}}"></textarea>
         </div>
         <div>
-            <label for="article-content">Description:</label>
-             <input class= "textarea is-large" id="article-content" name="article-content" placeholder="Insert Article Main Body here">
+            <label for="article-content">Article Content:</label>
+            <textarea class= "form-control mt-2" id="article-content" rows="8" name="article-content" value="{{article.article_content}}"></textarea>
         </div>
         <div>
-            Created on {{format_date post.created_at}}
+            Created on {{format_date article.date_created}}
             |
             <a href="/article/{{article.id}}">{{article.comments.length}} {{format_plural "comment" article.comments.length}}</a>
         </div>
-        <button type="submit" class="btn btn primary">Update</button>
-        <button type="button" class="btn btn danger delete-post">Delete</button>
+        <button type="submit" class="btn btn">Update</button>
+        <button type="button" id="delete-post"class="btn btn">Delete</button>
     </form>
 </article>
 
-{{> comments article.comments}}
+{{!-- {{> comment article.comment}} --}}
+
+<script src="/js/edit.js"></script>
+<script src="/js/delete.js"></script>

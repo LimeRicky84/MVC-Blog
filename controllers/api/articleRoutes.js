@@ -4,12 +4,11 @@ const sequelize = require("../../config/connection");
 const withAuth = require("../../utils/auth");
 
 // routes for /api/article
-
+// 
 router.get("/", async (req, res) => {
   try {
-    console.log("1");
+    console.log('/api/article get all route')
     const getArticles = await Article.findAll({
-      attributes: ["id", "title", "article_description", "date_created"],
       include: [
         {
           model: Comment,
@@ -18,9 +17,7 @@ router.get("/", async (req, res) => {
         { model: User },
       ],
   })
-    console.log("2");
     res.status(200).json(getArticles);
-    console.log("3");
   } catch (err) {
     res.status(500).json(err);
   }
@@ -28,8 +25,8 @@ router.get("/", async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
+    console.log('/api/article get one route')
     const articleData = await Article.findOne({
-      attributes: ["id", "title", "article_description", "date_created"],
       include: [
         {
           model: Comment,
@@ -50,6 +47,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
+    console.log('/api/article post route')
     const newArticle = await Article.create({
       title: req.body.title,
       article_description: req.body.article_description,
@@ -64,6 +62,7 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('./:id', withAuth, async (req, res) => {
   try {
+    console.log('/api/article put route')
     const updateArticle = await Article.update({
       title: req.body.title,
       article_description: req.body.article_description,
@@ -86,6 +85,7 @@ router.put('./:id', withAuth, async (req, res) => {
 
 router.delete('./:id', withAuth, async (req, res) => {
   try {
+    console.log('/api/article delete route')
     const deleteArticle = await Article.destroy({
       where: {
         id: req.params.id

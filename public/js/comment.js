@@ -1,14 +1,15 @@
 const commentFormHandler = async (event) => {
     event.preventDefault()
 
-    const commentText = document.querySelector('#comment-text').value.trim()
+    const comment_text = document.querySelector('#comment-text').value.trim()
 
     const article_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ]
 
-    if (commentText) {
-        const response = await fetch('/api/comments', {
+    if (comment_text) {
+        console.log(comment_text)
+        const response = await fetch('/api/comment', {
             method: 'POST',
             body: JSON.stringify({
                 article_id,
@@ -19,6 +20,7 @@ const commentFormHandler = async (event) => {
             }
         })
         if (response.ok) {
+            console.log(response)
             document.location.reload()
         } else {
             alert(response.statusText)
@@ -26,4 +28,4 @@ const commentFormHandler = async (event) => {
     }
 }
 
-document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+document.querySelector('.add-comment').addEventListener('submit', commentFormHandler);

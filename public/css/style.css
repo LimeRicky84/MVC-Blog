@@ -11,6 +11,17 @@ color: #333;
 background-color: darkgrey;
 }
 
+button {
+  text-decoration: none;
+  font-weight: bold;
+  padding-left: 6px;
+  color: rgb(207, 204, 204);
+}
+
+button:hover {
+  color: #999792;
+}
+
 a {
 text-decoration: none;
 font-weight: bold;
@@ -71,20 +82,20 @@ main {
     color: #3486eb;
   }
   
-  .delete-post-btn {
+  .delete-btn {
     background-color: #d41414;
   }
   
-  .delete-post-btn:hover {
+  .delete-btn:hover {
     background-color: #ff643d;
   }
   
-  .post {
+  .article {
     margin-bottom: 2%;
     line-height: 150%;
   }
   
-  .post .title span {
+  .article .title span {
     font-style: italic;
     font-size: 90%;
     color: #7d7d7d;
@@ -114,6 +125,6 @@ main {
     opacity: .6;
   }
   
-  .edit-post-form {
+  .edit-article-form {
     margin-bottom: 5%;
   }

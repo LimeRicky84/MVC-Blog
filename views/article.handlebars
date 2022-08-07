@@ -1,13 +1,16 @@
 <div class="text-center">
   <h2>{{title}}</h2><br>
-  <h4>{{article_description}}</h4><br>
-  <p>By: {{user.user_name}}</p><br>
-  <p>{{format_date date_created}}</p><br>
   <br>
+  <p>By: {{user.user_name}}</p>
+  <br>
+  <br><p>Article Handlebars</p>
   <br>
 </div>
 <div>
   <p>{{article_content}}</p><br>
   <br>
-  <p>{{> comment post.comment}}</p>
+  <h4>{{article_description}}</h4>
+  <p class="text-end">Created on: {{format_date date_created}}</p>
+
+   <p>{{> comment article.comment}}</p>
 </div>

@@ -1,13 +1,13 @@
- <div class="mb-5 pt-3">
-        <h2 class="title pb-4 text-center">Dashboard:</h2>
+    <div class="mb-5 pt-3">
+        <h2 class="title pb-4 text-center">{{user.user_name}}'s Dashboard:</h2>
         <h3 class="title pb-4 text-center">Your Posts</h3><hr>
 {{#if articles.length}}
     </div>
 
     {{#each articles as |article|}}
-        {{> article-info article}}
+        {{> article-card article}}
         
-            <a href="/dashboard/edit/{{article.id}}"><button class="button mb-5 ml-5 secondary">Edit Article</button></a>
+            <a href="/dashboard/edit/{{article.id}}"><button class="btn btn font-weight-bold">Edit Article</button></a>
         </div>
     {{/each}}
 
@@ -15,4 +15,8 @@
 <h6 class="pb-4 text-center">Write Your First Post Below!</h6>
 
 {{/if}}
-<a href="/dashboard/create"><button id="create-post" class="btn btn primary">Create Article</button></a>
+<a href="/dashboard/create"><button id="create-post" class="btn btn font-weight-bold">Create Article</button></a>
+
+
+
+<script src="js/delete.js"></script>

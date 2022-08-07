@@ -5,6 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
 // Get all articles
     try {
+      console.log('/ get all route')
         const articleData = await Article.findAll({
             include: [
                 {
@@ -15,7 +16,6 @@ router.get('/', async (req, res) => {
             ],
         })
         const articles = articleData.map((article) => article.get({plain: true}))
-
         res.render('homepage', {
             articles,
             logged_in: req.session.logged_in
@@ -27,13 +27,13 @@ router.get('/', async (req, res) => {
 
 router.get('/article/:id', async (req, res) => {
     try {
+      console.log('/ get one route')
       const articleData = await Article.findByPk(req.params.id, {
         include: [
             {
                 model: Comment,
                 include: { model: User },
             },
-
             { model: User },
         ],
     });
@@ -51,8 +51,9 @@ router.get('/article/:id', async (req, res) => {
 
 router.get('/login', (req, res) => {
 // redirect user if already logged in
+console.log('/ redirect to login route')
     if (req.session.logged_in) {
-      res.redirect('/profile');
+      res.redirect('/dashboard');
       return;
     }
   
@@ -61,6 +62,7 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
+      console.log('/ redirect from signup route')
       res.redirect('/');
       return;
     }
@@ -68,8 +70,4 @@ router.get('/signup', (req, res) => {
     res.render('signup');
   });
 
-
-// router.get('/article/:id', async (req, res) => {
-//     // Get a single article
-// });
 module.exports = router

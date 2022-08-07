@@ -1,5 +1,3 @@
-const { json } = require("sequelize/types")
-
 const deleteFormHandler = async (event) => {
     event.preventDefault()
 
@@ -23,4 +21,6 @@ const deleteFormHandler = async (event) => {
     }
 }
 
-document.querySelector('.delete-post-btn').addEventListener('click', deleteFormHandler)
+document
+    .querySelector('.delete-article')
+    .addEventListener('click', deleteFormHandler)

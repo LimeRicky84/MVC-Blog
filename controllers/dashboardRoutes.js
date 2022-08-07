@@ -6,17 +6,11 @@ const withAuth = require("../utils/auth");
 //  routes for /dashboard
 router.get("/", withAuth, async (req, res) => {
   try {
+    console.log('/dashboard get article route')
     const getArticle = await Article.findAll({
       where: {
         user_id: req.session.user_id,
       },
-      attributes: [
-        "id",
-        "title",
-        "date_created",
-        "article_description",
-        "article_content",
-      ],
       include: [
         {
           model: Comment,
@@ -34,17 +28,11 @@ router.get("/", withAuth, async (req, res) => {
 
 router.get("/edit/:id", withAuth, async (req, res) => {
   try {
+    console.log('/dashboard/edit get one route')
     const editArticle = await Article.findOne({
       where: {
         id: req.params.id,
       },
-      attributes: [
-        "id",
-        "title",
-        "description",
-        "date_created",
-        "article_content",
-      ],
       include: [
         {
           model: Comment,
@@ -71,18 +59,11 @@ router.get("/edit/:id", withAuth, async (req, res) => {
 
 router.get("/create/", withAuth, async (req, res) => {
   try {
-    console.log('1')
+    console.log('/dashboard/create get all route')
     const createArticle = await Article.findAll({
       where: {
         user_id: req.session.user_id,
       },
-      // attributes: [
-      //   "id",
-      //   "title",
-      //   "article_description",
-      //   "date_created",
-      //   "article_content",
-      // ],
       include: [
         {
           model: Comment,
@@ -91,7 +72,6 @@ router.get("/create/", withAuth, async (req, res) => {
         { model: User },
       ],
     });
-    console.log('2')
     const articles = createArticle.map((article) =>
       article.get({ plain: true })
     );

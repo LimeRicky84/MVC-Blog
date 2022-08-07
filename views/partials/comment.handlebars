@@ -1,4 +1,11 @@
 <div class="comments">
+  <div>
+    <form class="add-comment">
+      <label for="comment-body">Comment Here</label>
+       <input class="textarea" id="comment-text" name="comment-text" type="text" placeholder="comment here" />
+       <button type="submit" class="btn btn">Submit</button>
+    </form>
+  </div>
   {{#each this}}
   <section class="comment">
     <div class="meta">
@@ -10,3 +17,5 @@
   </section>
   {{/each}}
 </div>
+
+<script src="/js/comment.js"></script>
