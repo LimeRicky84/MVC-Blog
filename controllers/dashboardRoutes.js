@@ -5,6 +5,7 @@ const withAuth = require("../utils/auth");
 
 //  routes for /dashboard
 router.get("/", withAuth, async (req, res) => {
+  // withAuth
   try {
     console.log('/dashboard get article route')
     const getArticle = await Article.findAll({
@@ -27,6 +28,7 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 router.get("/edit/:id", withAuth, async (req, res) => {
+  // withAuth
   try {
     console.log('/dashboard/edit get one route')
     const editArticle = await Article.findOne({
@@ -58,6 +60,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
 });
 
 router.get("/create/", withAuth, async (req, res) => {
+  // withAuth
   try {
     console.log('/dashboard/create get all route')
     const createArticle = await Article.findAll({

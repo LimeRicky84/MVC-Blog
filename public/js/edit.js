@@ -28,4 +28,6 @@ const editFormHandler = async (event) => {
     }
 }
 
-document.querySelector('.edit-post').addEventListener('submit', editFormHandler);
+document
+.querySelector('.edit-article-form')
+.addEventListener('submit', editFormHandler);

@@ -16,10 +16,12 @@ router.get('/', async (req, res) => {
             ],
         })
         const articles = articleData.map((article) => article.get({plain: true}))
+        console.log('this spot1')
         res.render('homepage', {
             articles,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
         })
+        console.log('this spot2')
     } catch (err) {
         res.status(500).json(err);
     }

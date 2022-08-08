@@ -61,6 +61,7 @@ router.post('/logout', (req, res) => {
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
+  // withAuth
   try {
     console.log('/api/user delete user route')
     const userDelete = User.destroy({

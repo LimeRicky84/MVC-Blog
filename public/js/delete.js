@@ -22,5 +22,5 @@ const deleteFormHandler = async (event) => {
 }
 
 document
-    .querySelector('.delete-article')
+    .querySelector('#delete-article')
     .addEventListener('click', deleteFormHandler)

@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     console.log('/api/article get one route')
-    const articleData = await Article.findOne({
+    const articleData = await Article.findByPk(req.params.id, {
       include: [
         {
           model: Comment,
@@ -41,11 +41,13 @@ router.get('/:id', async (req, res) => {
     }
     res.status(200).json(articleData)
   } catch (err) {
+    console.log(err.message)
     res.status(500).json(err);
   }
 })
 
 router.post('/', withAuth, async (req, res) => {
+  // withAuth
   try {
     console.log('/api/article post route')
     const newArticle = await Article.create({
@@ -60,7 +62,8 @@ router.post('/', withAuth, async (req, res) => {
   }
 })
 
-router.put('./:id', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
+  // withAuth
   try {
     console.log('/api/article put route')
     const updateArticle = await Article.update({
@@ -83,7 +86,8 @@ router.put('./:id', withAuth, async (req, res) => {
   }
 })
 
-router.delete('./:id', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
+  // withAuth
   try {
     console.log('/api/article delete route')
     const deleteArticle = await Article.destroy({

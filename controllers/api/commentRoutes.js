@@ -16,6 +16,7 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', withAuth, async (req, res) => {
+    // withAuth
     try {
         console.log('/api/comment post route')
         if (req.session) {
@@ -32,10 +33,13 @@ router.post('/', withAuth, async (req, res) => {
 })
 
 router.delete('/:id', withAuth, async (req, res) => {
+    // withAuth
     try {
         console.log('/api/comment delete route')
         const commentDelete = await Comment.destroy({
-            where: req.params.id
+            where: {
+                id: req.params.id
+            }
         })
         if (!commentDelete) {
             res.status(404).json ({ message: 'Comment does not exist'})
