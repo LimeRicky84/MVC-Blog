@@ -18,4 +18,4 @@ Live Page: https://desolate-dawn-50052.herokuapp.com/
 
 ## Screenshot
 
-[!img](https://github.com/LimeRicky84/MVC-Blog/blob/main/Assets/MVC_blog_Screenshot.jpg)
+![img](https://github.com/LimeRicky84/MVC-Blog/blob/main/Assets/MVC_blog_Screenshot.jpg)
