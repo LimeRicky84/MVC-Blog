@@ -1,16 +1,21 @@
 # MVC-Blog
 
-you can write stuff
+## Description
 
-## A Paragraph
-```md
-Now write more stuff
-```
-## Another Paragraph
+A blogging website with login and logout capabilities where users can make accounts, read blogs from other users and comment if they choose
 
->write even more things
->
->
->Now imagine this is an article.
->
->if I wanted to pass through some code: <code>npm code snippet</code>
+## Usage
+
+Open the live link and navigate around!
+
+## Questions/Links
+
+My Github: https://github.com/LimeRicky84
+
+GitHub Repo: https://github.com/LimeRicky84/MVC-Blog
+
+Live Page: https://desolate-dawn-50052.herokuapp.com/
+
+## Screenshot
+
+[!img](C:\Users\ricma\repos\MVC-Blog\Assets\MVC_blog_Screenshot.jpg)
